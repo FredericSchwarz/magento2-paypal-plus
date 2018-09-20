@@ -118,11 +118,11 @@ define(
                             self.selectedMethod = self.paymentCodeMappings[data.thirdPartyPaymentMethod];
                             self.selectPaymentMethod();
                         },
+                        onThirdPartyPaymentMethodDeselected: function (data) {
+                            self.selectedMethod = 'iways_paypalplus_payment';
+                            self.selectPaymentMethod();
+                        },
                         enableContinue: function () {
-                            if (self.lastCall != 'onThirdPartyPaymentMethodSelected') {
-                                self.selectedMethod = 'iways_paypalplus_payment';
-                                self.selectPaymentMethod();
-                            }
                             self.lastCall = 'enableContinue';
                             self.isPaymentMethodSelected = true;
                             $("#place-ppp-order").removeAttr("disabled");
